@@ -78,6 +78,8 @@ li {
   margin: 10px;
 }
 
+
+
 .question {
   width: 100%;
   max-width: 700px;
@@ -131,8 +133,17 @@ form {
 .left-align {
   text-align: left;
 }
-.split-para span {
+.span-right {
   float:right;
+  background: rgb(95, 95, 199);
+  color: rgb(255, 255, 255);
+  padding: 0 10px;
+}
+.span-center {
+  margin-left: 5em;
+}
+.results-text {
+  width: 375px;
 }
 
 .question-new {
@@ -288,5 +299,11 @@ form {
   border-radius: 5px;
   font-size: 17px;
   letter-spacing: 0.02em;
+}
+
+.test {
+  display: flex;
+  margin: auto;
+  float: right;
 }
 

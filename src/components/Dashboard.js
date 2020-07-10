@@ -19,7 +19,6 @@ function mapStateToProps({questions, users, authedUser}) {
 class Dashboard extends Component {
 
   state ={
-    qids: this.props.unansweredQIds,
     clickedTab: 'U'
   }
 
@@ -27,17 +26,18 @@ class Dashboard extends Component {
     e.preventDefault()
 
     const id = e.target.id
-    const { answeredQIds, unansweredQIds } = this.props
 
     this.setState(() => ({
-      qids: id === 'U'? unansweredQIds: answeredQIds,
       clickedTab: id
     }))
   }
   
 
   render() {
-    
+    const qids = this.state.clickedTab === 'U'
+      ? this.props.unansweredQIds
+      : this.props.answeredQIds
+
     return (
       <div>
         <div className='select'>
@@ -55,7 +55,7 @@ class Dashboard extends Component {
           </button>
         </div>
         <ul className='dashboard-list'>
-          {this.state.qids.map((id) => (
+          {qids.map((id) => (
             <li key={id}>
               <Question id={id}/>
             </li>

@@ -4,6 +4,7 @@ import { formatQuestion } from '../utils/helpers'
 import FormRadio from './FormRadio'
 import Results from './Results'
 import { handleSaveAnswer } from '../actions/questions'
+import NoMatch from './NoMatch'
 // import { Link, withRouter } from 'react-router-dom'
 
 function mapStateToProps({authedUser, users, questions}, props) {
@@ -38,7 +39,9 @@ class QuestionFull extends Component {
   
   render() {
     const { question, authedUser } = this.props
-    
+    if (!question) {
+      return <NoMatch />
+    }
     const { name, avatar, options, voted } = question
 
     return (
